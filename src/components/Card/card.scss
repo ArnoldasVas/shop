@@ -1,0 +1,22 @@
+.card {
+  background-color: rgb(238, 210, 210);
+  height: 15rem;
+  width: 13rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+button {
+  padding: 10px 15px;
+
+  background-color: rgb(136, 105, 50);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: orange;
+  }
+  &:active {
+    color: orangered;
+  }
+}

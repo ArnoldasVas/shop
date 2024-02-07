@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgb(228, 162, 39);
+  background-color: rgb(100, 93, 117);
   color: var(--dark-bg);
+  margin-bottom: 2rem;
 
   ul {
     display: flex;
@@ -12,6 +13,7 @@
     column-gap: 2rem;
 
     li {
+      color: rgb(196, 123, 28);
       cursor: pointer;
       transition: all 0.2s ease;
 
