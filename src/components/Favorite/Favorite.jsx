@@ -1,11 +1,10 @@
 import React from 'react';
-import './card.scss';
+import './favorite.scss';
 
 function Card({ title, description, setCardData, card }) {
   const handleAddToCard = () => {
     setCardData({ title, description });
   };
-
   return (
     <div className="card">
       <h3>{title}</h3>

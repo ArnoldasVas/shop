@@ -16,7 +16,7 @@ class Main extends React.Component {
   render() {
     const { data } = this.state;
 
-    const handleSortData = () => {
+    const handleSortAZData = () => {
       const sortedData = data.sort((a, b) => {
         let fa = a.title.toLocaleLowerCase(),
           fb = b.title.toLocaleLowerCase();
@@ -32,7 +32,7 @@ class Main extends React.Component {
       });
     };
 
-    const SortData = () => {
+    const sortZAData = () => {
       const sortedData = data.sort((a, b) => {
         let fa = a.title.toLocaleLowerCase(),
           fb = b.title.toLocaleLowerCase();
@@ -50,8 +50,8 @@ class Main extends React.Component {
     return (
       <main className="main-container">
         <div className="main-action-btn">
-          <button onClick={handleSortData}>Sort A-Z</button>
-          <button onClick={SortData}>Sort Z-A</button>
+          <button onClick={handleSortAZData}>Sort A-Z</button>
+          <button onClick={sortZAData}>Sort Z-A</button>
         </div>
         {data.map((item) => {
           return (
