@@ -16,29 +16,14 @@ class Main extends React.Component {
   render() {
     const { data } = this.state;
 
-    const handleSortAZData = () => {
+    const handleSortData = (direction) => {
       const sortedData = data.sort((a, b) => {
-        let fa = a.title.toLocaleLowerCase(),
-          fb = b.title.toLocaleLowerCase();
+        let fa = a.title.toLowerCase(),
+          fb = b.title.toLowerCase();
 
-        if (fa < fb) return -1;
-        if (fa > fb) return 1;
+        if (fa < fb) return direction === 'az' ? -1 : 1;
+        if (fa > fb) return direction === 'az' ? 1 : -1;
 
-        return 0;
-      });
-
-      this.setState({
-        data: sortedData,
-      });
-    };
-
-    const sortZAData = () => {
-      const sortedData = data.sort((a, b) => {
-        let fa = a.title.toLocaleLowerCase(),
-          fb = b.title.toLocaleLowerCase();
-
-        if (fa < fb) return 1;
-        if (fa > fb) return -1;
         return 0;
       });
 
@@ -50,18 +35,22 @@ class Main extends React.Component {
     return (
       <main className="main-container">
         <div className="main-action-btn">
-          <button onClick={handleSortAZData}>Sort A-Z</button>
-          <button onClick={sortZAData}>Sort Z-A</button>
+          <button
+            onClick={() => {
+              handleSortData('az');
+            }}
+          >
+            Sort A-Z
+          </button>
+          <button onClick={handleSortData}>Sort Z-A</button>
         </div>
-        {data.map((item) => {
-          return (
-            <Card
-              key={item.title}
-              title={item.title}
-              description={item.description}
-            />
-          );
-        })}
+        {data.map((item) => (
+          <Card
+            key={item.title}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
       </main>
     );
   }

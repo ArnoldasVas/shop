@@ -1,9 +1,9 @@
 import React from 'react';
 import './card.scss';
 
-function Card({ title, description, setCardData, card }) {
+function Card({ title, description, handleCardButton, card }) {
   const handleAddToCard = () => {
-    setCardData({ title, description });
+    handleCardButton({ title, description });
   };
 
   return (
