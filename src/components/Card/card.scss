@@ -20,3 +20,13 @@ button {
     color: orangered;
   }
 }
+
+.favorite-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(85, 80, 80);
+  &--active {
+    color: rgb(190, 74, 74);
+    cursor: pointer;
+  }
+}

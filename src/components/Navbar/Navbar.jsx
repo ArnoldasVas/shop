@@ -14,7 +14,7 @@ function Navbar() {
           <NavLink to="/my-card">My Card</NavLink>
         </li>
         <li>
-          <NavLink to="/favorite">Favorite</NavLink>
+          <NavLink to="/favorites">Favorites</NavLink>
         </li>
       </ul>
     </nav>
