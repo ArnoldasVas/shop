@@ -1,5 +1,8 @@
+@import '~bootstrap/scss/bootstrap';
+
 .container {
   display: flex;
+  justify-content: space-evenly;
   gap: 2rem;
   flex-wrap: wrap;
   max-width: 1200px;

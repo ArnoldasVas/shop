@@ -17,7 +17,7 @@ function Card({ title, description, handleCardButton, card }) {
   };
 
   return (
-    <div className="card">
+    <div className="item">
       <FontAwesomeIcon
         icon={faHeart}
         className={`favorite-icon ${isFavorite ? 'favorite-icon--active' : ''}`}
