@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faUser,
+  faEnvelope,
+  faPhone,
+  faGlobe,
+} from '@fortawesome/free-solid-svg-icons';
+
 import './user.scss';
 
 function User() {
@@ -15,7 +23,7 @@ function User() {
       setLoading(true);
       try {
         const response = await fetch(
-          'https://jsonplaceholder.typicode.com/users/6'
+          'https://jsonplaceholder.typicode.com/users/5'
         );
         if (!response.ok) throw new Error('Something went wrong');
 
@@ -51,11 +59,25 @@ function User() {
             placement="end"
           >
             <Offcanvas.Header closeButton closeVariant="white">
-              <Offcanvas.Title>{user.name}</Offcanvas.Title>
+              <Offcanvas.Title>{'User informacion'}</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <p> {user.name} </p>
-              <p> {user.email} </p>
+              <p>
+                <FontAwesomeIcon icon={faUser} />
+                {user.name}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faEnvelope} />
+                {user.email}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faPhone} />
+                {user.phone}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faGlobe} />
+                {user.website}
+              </p>
             </Offcanvas.Body>
           </Offcanvas>
         </>
