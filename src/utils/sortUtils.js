@@ -1,4 +1,6 @@
 export const handleSort = (arr, direction) => {
+  if (!Array.isArray(arr)) return [];
+
   const sortedData = arr.toSorted((a, b) => {
     let fa = a.title.toLowerCase(),
       fb = b.title.toLowerCase();
