@@ -19,6 +19,9 @@ function Navbar() {
         <li>
           <NavLink to="/favorites">Favorites</NavLink>
         </li>
+        <li>
+          <NavLink to="/admin">Admin</NavLink>
+        </li>
       </ul>
       <User />
     </nav>
