@@ -17,7 +17,7 @@ function Favorites() {
   };
 
   return (
-    <main className="container">
+    <main className="my-container">
       <div className="container-actions">
         <SortButtons handleSortData={handleSortData} />
 

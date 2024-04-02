@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 //components
-import User from '../User/User';
+// import User from '../User/User';
+import AdminUser from '../AdminUser/AdminUser';
 
 import './navbar.scss';
 
@@ -23,7 +24,8 @@ function Navbar() {
           <NavLink to="/admin">Admin</NavLink>
         </li>
       </ul>
-      <User />
+      {/* <User /> */}
+      <AdminUser />
     </nav>
   );
 }
