@@ -4,6 +4,8 @@ import { cfg } from '../cfg/cfg';
 export const AppContext = createContext();
 
 function AppContextProvider(props) {
+  const [showLogin, setShowLogin] = useState(false);
+  const [loadingProducts, setLoadingProducts] = useState(true);
   const [data, setData] = useState([]);
   const [cardData, setCardData] = useState(
     JSON.parse(localStorage.getItem('cardData')) || []
@@ -12,26 +14,27 @@ function AppContextProvider(props) {
     JSON.parse(localStorage.getItem('favoritesData')) || []
   );
 
+  const fetchData = async () => {
+    try {
+      setLoadingProducts(true);
+      const response = await fetch(`${cfg.API.HOST}/product`);
+
+      const products = await response.json();
+
+      const filteredData = products.filter(
+        (item) => !cardData.some((cardItem) => cardItem.title === item.title)
+      );
+      setData(filteredData);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoadingProducts(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${cfg.API.HOST}/product`);
-        console.log('response', response);
-
-        console.log('host', cfg.API.HOST);
-
-        const products = await response.json();
-        console.log('data', products);
-
-        const filteredData = products.filter(
-          (item) => !cardData.some((cardItem) => cardItem.title === item.title)
-        );
-        setData(filteredData);
-      } catch (error) {}
-    };
-
     fetchData();
-  }, [cardData]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cardData', JSON.stringify(cardData));
@@ -78,9 +81,13 @@ function AppContextProvider(props) {
         data,
         setData,
         cardData,
+        showLogin,
+        setShowLogin,
+        fetchData,
         setCardData,
         favoritesData,
         handleAddToCard,
+        loadingProducts,
         setFavoritesData,
         handleRemoveFromCard,
         handleAddToFavorites,
